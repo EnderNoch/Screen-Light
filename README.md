@@ -36,9 +36,14 @@ open ScreenLight.app
 
 ### First launch (Gatekeeper)
 
-Because the app is ad-hoc signed (not notarized), macOS may refuse the first launch.
-Right-click `ScreenLight.app` → **Open** → **Open**, or move it to `/Applications` first.
-You only need to do this once.
+Because the app is ad-hoc signed (not notarized), macOS may refuse to open it the first time.
+You only need to do the steps below once.
+
+- **macOS 14 (Sonoma) and earlier:** Control-click (right-click) `ScreenLight.app`, choose
+  **Open** from the context menu, then click **Open** in the warning dialog that appears.
+- **macOS 15 (Sequoia) and later:** double-click `ScreenLight.app` once (it will be blocked),
+  then go to **System Settings → Privacy & Security**, scroll down to the message about
+  ScreenLight and click **Open Anyway**.
 
 ## Notes
 
