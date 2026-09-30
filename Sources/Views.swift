@@ -282,7 +282,7 @@ struct MenuPanel: View {
             }
             .labelsHidden()
             Swatches()
-            LightButtons().controlSize(.large)
+            LightButtons(vertical: true).controlSize(.large)
             Divider()
             HStack {
                 Button(s.open) {
@@ -303,12 +303,15 @@ struct MenuPanel: View {
 
 /// Edge light toggles; Light is the main action, filled with the accent like Start in the timer.
 struct LightButtons: View {
+    /// One under the other, for the narrow menu bar panel, so "Edge Light" fits in full.
+    var vertical = false
     @Environment(\.palette) private var p
     private let m = Model.shared
     private let light = Light.shared
 
     var body: some View {
-        HStack(spacing: 10) {
+        let layout = vertical ? AnyLayout(VStackLayout(spacing: 8)) : AnyLayout(HStackLayout(spacing: 10))
+        layout {
             if light.mode == .edge || light.mode == .booth {
                 Button { light.off() } label: { edgeLabel.foregroundStyle(p.onTint) }
                     .buttonStyle(.glassProminent)

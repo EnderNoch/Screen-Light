@@ -21,6 +21,13 @@ level you chose. Any key or click turns it off and brings the old brightness bac
 *The look follows System Settings → Appearance: light and dark, the accent color (purple, blue,
 green, orange), and the Liquid Glass slider moved to tinted.*
 
+<p>
+  <img src="Screenshots/menubar-light.jpg" width="300" alt="Menu bar panel, light">
+  <img src="Screenshots/menubar-dark.jpg" width="300" alt="Menu bar panel, dark">
+</p>
+
+*The menu bar panel: brightness, colors, both lights, and the way back to the window.*
+
 ## Download and install
 
 1. Download [Screen-Light.zip](https://github.com/EnderNoch/Screen-Light/raw/main/Screen-Light.zip).
@@ -119,7 +126,7 @@ otwórz **Ustawienia systemowe → Prywatność i ochrona**, przewiń w dół i 
   w całości, a po wyjściu z Photo Booth wszystko gaśnie.
 - **Tarcza jasności** — przeciągasz po pierścieniu albo klikasz liczbę i wpisujesz wartość.
 - **Kolory** — biały, ciepły, różowy, chłodny albo dowolny z systemowego panelu kolorów.
-- **Pasek menu** — jasność, kolory i oba rodzaje światła pod ręką; ikonę chowa się w
+- **Pasek menu** — jasność, kolory i oba rodzaje światła pod ręką (zrzuty panelu wyżej); ikonę chowa się w
   Ustawieniach systemowych → Pasek menu → Pozwalaj na pasku menu.
 - **Wszystko z systemu** — język, jasny i ciemny wygląd, kolor akcentu, suwak Liquid Glass i styl
   ikony; zmiany w Ustawieniach widać od razu.
