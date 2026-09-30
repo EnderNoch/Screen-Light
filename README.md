@@ -7,26 +7,16 @@ level you chose. Any key or click turns it off and brings the old brightness bac
 *[Po polsku niżej.](#po-polsku)*
 
 <p>
-  <img src="Screenshots/light-purple.jpg" width="200" alt="Light appearance, purple accent">
-  <img src="Screenshots/light-blue.jpg" width="200" alt="Light appearance, blue accent">
-  <img src="Screenshots/light-green.jpg" width="200" alt="Light appearance, green accent">
-  <img src="Screenshots/light-tinted.jpg" width="200" alt="Tinted glass">
+  <img src="Screenshots/en-light.jpg" width="260" alt="Screen Light, light appearance">
+  <img src="Screenshots/en-dark.jpg" width="260" alt="Screen Light, dark appearance">
 </p>
 <p>
-  <img src="Screenshots/dark-purple.jpg" width="200" alt="Dark appearance, purple accent">
-  <img src="Screenshots/dark-orange.jpg" width="200" alt="Dark appearance, orange accent">
-  <img src="Screenshots/dark-tinted.jpg" width="200" alt="Dark appearance, tinted glass">
+  <img src="Screenshots/en-menubar-light.jpg" width="300" alt="Menu bar panel, light">
+  <img src="Screenshots/en-menubar-dark.jpg" width="300" alt="Menu bar panel, dark">
 </p>
 
-*The look follows System Settings → Appearance: light and dark, the accent color (purple, blue,
-green, orange), and the Liquid Glass slider moved to tinted.*
-
-<p>
-  <img src="Screenshots/menubar-light.jpg" width="300" alt="Menu bar panel, light">
-  <img src="Screenshots/menubar-dark.jpg" width="300" alt="Menu bar panel, dark">
-</p>
-
-*The menu bar panel: brightness, colors, both lights, and the way back to the window.*
+*The window and the menu bar panel, in light and dark. The app speaks 43 languages and follows
+the system's; more looks (accent colors, tinted glass) are in the [Polish section](#po-polsku).*
 
 ## Download and install
 
@@ -45,6 +35,16 @@ The app isn't notarized by Apple, so macOS blocks it the first time:
 3. Scroll down to the message about Screen Light and click **Open Anyway**.
 
 You only need to do this once.
+
+## Languages
+
+Screen Light speaks 43 languages and, like Apple's own apps, simply follows the system: it uses
+the first language from your list in System Settings → General → Language & Region, and so does
+its name (Screen Light, Światło ekranu, Bildschirmlicht, スクリーンライト…). To run just this app
+in another language, add it under **System Settings → General → Language & Region →
+Applications**.
+
+Bahasa Indonesia, Bahasa Melayu, Català, Čeština, Dansk, Deutsch, Eesti, English, Español, Français, Hrvatski, Íslenska, Italiano, Latviešu, Lietuvių, Magyar, Nederlands, Norsk, Polski, Português, Română, Slovenčina, Slovenščina, Suomi, Svenska, Tiếng Việt, Türkçe, Ελληνικά, Беларуская, Български, Русский, Српски, Українська, עברית, العربية, فارسی, हिन्दी, বাংলা, ไทย, 한국어, 日本語, 简体中文, 繁體中文.
 
 ## What it does
 
@@ -105,6 +105,33 @@ Made by [EnderNoch](https://github.com/EnderNoch) (Atypical Maker) · part of
 **Światło ekranu** to lampa doświetlająca z ekranu Maca, do rozmów wideo i zdjęć. Ustawiasz
 jasność i kolor, klikasz **Światło** — cały ekran świeci tym kolorem, a podświetlenie idzie na
 wybrany poziom. Dowolny klawisz albo kliknięcie gasi światło i przywraca poprzednią jasność.
+
+<p>
+  <img src="Screenshots/light-purple.jpg" width="200" alt="Jasny wygląd, akcent fioletowy">
+  <img src="Screenshots/light-blue.jpg" width="200" alt="Jasny wygląd, akcent niebieski">
+  <img src="Screenshots/light-green.jpg" width="200" alt="Jasny wygląd, akcent zielony">
+  <img src="Screenshots/light-tinted.jpg" width="200" alt="Szkło zabarwione">
+</p>
+<p>
+  <img src="Screenshots/dark-purple.jpg" width="200" alt="Ciemny wygląd, akcent fioletowy">
+  <img src="Screenshots/dark-orange.jpg" width="200" alt="Ciemny wygląd, akcent pomarańczowy">
+  <img src="Screenshots/dark-tinted.jpg" width="200" alt="Ciemny wygląd, szkło zabarwione">
+</p>
+<p>
+  <img src="Screenshots/menubar-light.jpg" width="300" alt="Panel z paska menu, jasny">
+  <img src="Screenshots/menubar-dark.jpg" width="300" alt="Panel z paska menu, ciemny">
+</p>
+
+*Wygląd idzie za Ustawieniami systemowymi → Wygląd: jasny i ciemny, kolor akcentu (fioletowy,
+niebieski, zielony, pomarańczowy) i suwak Liquid Glass przesunięty na „zabarwione”; na dole panel
+z paska menu.*
+
+### Języki
+
+Aplikacja mówi w 43 językach i, jak aplikacje Apple, bierze język z systemu — pierwszy z listy w
+Ustawieniach systemowych → Ogólne → Język i region; nazwa aplikacji też się tłumaczy. Żeby tylko
+ta aplikacja działała w innym języku, dodaj ją w **Ustawieniach systemowych → Ogólne → Język i
+region → Aplikacje**.
 
 ### Pobieranie i instalacja
 
