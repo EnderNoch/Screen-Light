@@ -1,27 +1,6 @@
 Screen Light (Światło ekranu)
 Copyright (c) 2026 Ender_Noch (github.com/EnderNoch)
-Wszelkie prawa zastrzeżone. / All rights reserved.
-
-
-WARUNKI (wersja polska)
-
-Ten program i jego kod źródłowy są własnością autora i NIE są
-oprogramowaniem otwartym.
-
-Wolno pobrać gotową aplikację z tego repozytorium i używać jej na
-własnym komputerze do celów osobistych.
-
-Bez uprzedniej pisemnej zgody autora zabrania się:
-
-  1. kopiowania kodu w całości lub w części,
-  2. rozpowszechniania aplikacji i kodu, publikowania ich i udostępniania
-     osobom trzecim w innej formie niż link do tego repozytorium,
-  3. modyfikowania oraz tworzenia utworów zależnych,
-  4. wykorzystywania kodu w innych projektach, także niekomercyjnych,
-  5. wykorzystywania kodu do trenowania modeli uczenia maszynowego.
-
-Program dostarczany jest "TAK JAK JEST", bez jakiejkolwiek gwarancji.
-Autor nie ponosi odpowiedzialności za szkody wynikłe z jego użycia.
+All rights reserved. / Wszelkie prawa zastrzeżone.
 
 
 TERMS (English version)
@@ -43,3 +22,24 @@ Without the author's prior written permission you may not:
 
 The program is provided "AS IS", without warranty of any kind. The
 author is not liable for any damages arising from its use.
+
+
+WARUNKI (wersja polska)
+
+Ten program i jego kod źródłowy są własnością autora i NIE są
+oprogramowaniem otwartym.
+
+Wolno pobrać gotową aplikację z tego repozytorium i używać jej na
+własnym komputerze do celów osobistych.
+
+Bez uprzedniej pisemnej zgody autora zabrania się:
+
+  1. kopiowania kodu w całości lub w części,
+  2. rozpowszechniania aplikacji i kodu, publikowania ich i udostępniania
+     osobom trzecim w innej formie niż link do tego repozytorium,
+  3. modyfikowania oraz tworzenia utworów zależnych,
+  4. wykorzystywania kodu w innych projektach, także niekomercyjnych,
+  5. wykorzystywania kodu do trenowania modeli uczenia maszynowego.
+
+Program dostarczany jest "TAK JAK JEST", bez jakiejkolwiek gwarancji.
+Autor nie ponosi odpowiedzialności za szkody wynikłe z jego użycia.
