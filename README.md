@@ -1,55 +1,87 @@
-# ScreenLight
+# Światło ekranu (Screen Light)
 
-A tiny macOS app that turns your Mac's screen into a controllable fill light (a "softbox"
-for video calls). Pick a brightness and a color, hit **Light / Światło**, and the whole
-screen fills with that color at the brightness you chose. Tap **any key or the trackpad** to
-go back to the options.
+Lampa doświetlająca z ekranu Maca, do rozmów wideo i zdjęć. Ustawiasz jasność i kolor,
+klikasz **Światło** — cały ekran świeci tym kolorem, a podświetlenie idzie na wybrany poziom.
+Dowolny klawisz albo kliknięcie gasi światło i przywraca poprzednią jasność.
 
-## Features
+*English: a macOS fill light for video calls and photos — the screen lights your face. The app
+follows the system language, look, accent color and Liquid Glass. Download below.*
 
-- **Brightness slider** 0–100 with tick notches at 0 / 25 / 50 / 75 / 100.
-- **Light / Światło** button sets the Mac's real backlight and shows a fullscreen color.
-- **Color** picker (white by default, or any custom color).
-- **Dismiss** by pressing any key, a modifier, or clicking/tapping the trackpad — this
-  returns to the options screen and **restores your previous brightness**.
-- **Launch at login** toggle so the options screen is ready on startup.
-## Download
+<p>
+  <img src="Screenshots/light-purple.jpg" width="200" alt="Jasny wygląd, akcent fioletowy">
+  <img src="Screenshots/light-blue.jpg" width="200" alt="Jasny wygląd, akcent niebieski">
+  <img src="Screenshots/light-green.jpg" width="200" alt="Jasny wygląd, akcent zielony">
+  <img src="Screenshots/light-tinted.jpg" width="200" alt="Szkło zabarwione">
+</p>
 
-Download the ScreenLight.zip file and open it and move to Applications folder
+*Wygląd idzie za Ustawieniami systemowymi → Wygląd: od lewej akcent fioletowy, niebieski
+i zielony, na końcu suwak Liquid Glass przesunięty na „zabarwione”.*
 
-## Build
+## Pobieranie i instalacja
 
-Requires the Swift toolchain (Command Line Tools or Xcode):
+1. Pobierz [Screen-Light.zip](https://github.com/EnderNoch/Screen-Light/raw/main/Screen-Light.zip).
+2. Otwórz plik zip.
+3. Przeciągnij **Screen Light.app** do folderu Aplikacje.
+
+Wymaga macOS 26 lub nowszego na Macu z procesorem Apple.
+
+### Pierwsze uruchomienie
+
+Aplikacja nie jest notaryzowana przez Apple, więc za pierwszym razem macOS ją zablokuje:
+
+1. Kliknij dwukrotnie **Screen Light.app** — pojawi się ostrzeżenie; zamknij je.
+2. Otwórz **Ustawienia systemowe → Prywatność i ochrona**.
+3. Przewiń w dół do komunikatu o Screen Light i kliknij **Otwórz mimo to**.
+
+Wystarczy raz.
+
+## Co potrafi
+
+- **Światło** — cały ekran (i każdy podłączony monitor) świeci wybranym kolorem.
+- **Doświetlenie ekranem** — pas światła wokół krawędzi ekranu, wzorowany na systemowym
+  Doświetleniu ekranem: nie zasłania pracy, kliknięcia przez niego przechodzą, a przy kursorze
+  gaśnie. Grubość ustawiasz suwakiem.
+- **Photo Booth** — gdy Photo Booth jest na wierzchu, ramka włącza się sama wokół podglądu,
+  inne ekrany świecą w całości, a po wyjściu z Photo Booth wszystko gaśnie.
+- **Tarcza jasności** — przeciągasz po pierścieniu albo klikasz liczbę i wpisujesz wartość.
+- **Kolory** — biały, ciepły, różowy, chłodny albo dowolny z systemowego panelu kolorów.
+- **Pasek menu** — jasność, kolory i oba rodzaje światła pod ręką. Ikonę chowa się systemowo:
+  Ustawienia systemowe → Pasek menu → Pozwalaj na pasku menu.
+- **Wszystko z systemu** — język (43 języki), jasny i ciemny wygląd, kolor akcentu, suwak
+  Liquid Glass i styl ikony (Domyślny, Ciemny, Przejrzysty, Matowy). Aplikacja nie ma własnych
+  przełączników tam, gdzie system już je ma; zmiany w Ustawieniach widać od razu.
+- **Otwiera się przy logowaniu** od pierwszego uruchomienia; wyłączasz w Ustawieniach
+  systemowych → Ogólne → Rzeczy otwierane podczas logowania.
+
+Samego światła nie widać na zrzutach ekranu — tak jak systemowego Doświetlenia ekranem.
+
+## Budowanie ze źródeł
+
+Wymaga Xcode (dla `actool`, który składa ikonę):
 
 ```bash
-chmod +x build.sh   # first time only
 ./build.sh
 ```
 
-This compiles the sources and assembles `ScreenLight.app` (ad-hoc signed).
+Skrypt kompiluje `Sources/`, składa ikonę z warstw `ScreenLight.icon`, podpisuje aplikację
+ad hoc, odświeża `Screen-Light.zip` i instaluje ją w `/Applications` (działającą kopię
+zamyka i otwiera już nową).
 
-## Run
+| Część | Plik |
+| --- | --- |
+| Aplikacja, okno i pasek menu (SwiftUI `Window` + `MenuBarExtra`) | `Sources/ScreenLightApp.swift` |
+| Ustawienia (`@Observable`, UserDefaults), akcent z systemu, logowanie (`SMAppService`) | `Sources/Model.swift` |
+| Podświetlenie, okna światła, Doświetlenie ekranem, Photo Booth | `Sources/Light.swift` |
+| Okno i panel paska menu | `Sources/Views.swift` |
+| Tłumaczenia (nazwa aplikacji w każdym języku jest w `build.sh`) | `Sources/Strings.swift` |
+| Ikona z Icon Composera | `ScreenLight.icon` |
 
-```bash
-open ScreenLight.app
-```
+Jasność podświetlenia ustawia prywatny framework `DisplayServices` (na procesorach Apple nie ma
+do tego publicznego API) i dotyczy wbudowanego ekranu; zewnętrzne monitory świecą samym obrazem.
 
-### First launch (Gatekeeper)
+## Licencja
 
-Because the app is ad-hoc signed (not notarized), macOS may refuse to open it the first time.
-You only need to do the steps below once.
+Wszelkie prawa zastrzeżone — patrz [LICENSE](LICENSE). Aplikację wolno pobrać i używać;
+kodu nie wolno kopiować, rozpowszechniać, zmieniać ani używać do trenowania modeli AI.
 
-- **macOS 14 (Sonoma) and earlier:** Control-click (right-click) `ScreenLight.app`, choose
-  **Open** from the context menu, then click **Open** in the warning dialog that appears.
-- **macOS 15 (Sequoia) and later:** double-click `ScreenLight.app` once (it will be blocked),
-  then go to **System Settings → Privacy & Security**, scroll down to the message about
-  ScreenLight and click **Open Anyway**.
-
-## Notes
-
-- **Hardware brightness** uses the private `DisplayServices` framework (the only way to drive
-  the backlight programmatically on Apple Silicon). It targets the built-in display
-  (`CGMainDisplayID`). If a future macOS removes the symbol, the on-screen light still works;
-  only the backlight change is skipped.
-- **External monitors** ignore the backlight call (that would need DDC/CI, out of scope), but
-  the color overlay still covers every connected screen.
+Część zestawu [Atypical Maker Mac Apps](https://github.com/EnderNoch/Atypical-Maker-Mac-Apps).
