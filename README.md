@@ -12,9 +12,14 @@ level you chose. Any key or click turns it off and brings the old brightness bac
   <img src="Screenshots/light-green.jpg" width="200" alt="Light appearance, green accent">
   <img src="Screenshots/light-tinted.jpg" width="200" alt="Tinted glass">
 </p>
+<p>
+  <img src="Screenshots/dark-purple.jpg" width="200" alt="Dark appearance, purple accent">
+  <img src="Screenshots/dark-orange.jpg" width="200" alt="Dark appearance, orange accent">
+  <img src="Screenshots/dark-tinted.jpg" width="200" alt="Dark appearance, tinted glass">
+</p>
 
-*The look follows System Settings → Appearance: purple, blue and green accent colors, and the
-Liquid Glass slider moved to tinted on the right.*
+*The look follows System Settings → Appearance: light and dark, the accent color (purple, blue,
+green, orange), and the Liquid Glass slider moved to tinted.*
 
 ## Download and install
 
