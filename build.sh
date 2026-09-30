@@ -6,6 +6,12 @@ cd "$(dirname "$0")"
 
 APP="Screen Light.app"
 ID="com.local.screenlight"
+# The About window's signature, like the system's own "Copyright © … Apple Inc. All rights
+# reserved.", with the author in place of Apple.
+AUTHOR="EnderNoch (Atypical Maker)"
+SINCE=2026
+YEARS="$SINCE"; [ "$(date +%Y)" != "$SINCE" ] && YEARS="$SINCE–$(date +%Y)"
+COPYRIGHT="Copyright © $YEARS $AUTHOR. All rights reserved."
 
 echo "› compiling"
 rm -rf "$APP" Screen-Light.zip
@@ -46,6 +52,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 	<key>LSMinimumSystemVersion</key><string>26.0</string>
 	<key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
 	<key>NSHighResolutionCapable</key><true/>
+	<key>NSHumanReadableCopyright</key><string>$COPYRIGHT</string>
 </dict>
 </plist>
 PLIST
@@ -53,11 +60,18 @@ PLIST
 # The app's name in each language, like the system's own apps: Finder, the Dock, the menu
 # bar and the window title all follow the system language. The app reads its name back from
 # here, so this list is the only place it is spelled out.
-echo "› localized names"
+# The copyright line in each language comes from Photo Booth, with the author and years
+# swapped in; languages macOS doesn't ship keep the English one.
+BOOTH="/System/Applications/Photo Booth.app/Contents/Resources/InfoPlist.loctable"
+echo "› localized names and copyright"
 while IFS='|' read -r code name; do
 	mkdir -p "$APP/Contents/Resources/$code.lproj"
-	printf '"CFBundleName" = "%s";\n"CFBundleDisplayName" = "%s";\n' "$name" "$name" \
-		> "$APP/Contents/Resources/$code.lproj/InfoPlist.strings"
+	case "$code" in nb) sys=no;; pt) sys=pt_PT;; zh-Hans) sys=zh_CN;; zh-Hant) sys=zh_TW;; *) sys="$code";; esac
+	line="$(plutil -extract "$sys.NSHumanReadableCopyright" raw -o - "$BOOTH" 2>/dev/null)" || line="$COPYRIGHT"
+	line="$(printf '%s' "$line" | sed -E "s/[0-9]{4}(–[0-9]{4})? Apple Inc\./$YEARS $AUTHOR./")"
+	line="${line//\"/\\\"}"
+	printf '"CFBundleName" = "%s";\n"CFBundleDisplayName" = "%s";\n"NSHumanReadableCopyright" = "%s";\n' \
+		"$name" "$name" "$line" > "$APP/Contents/Resources/$code.lproj/InfoPlist.strings"
 done <<'NAMES'
 en|Screen Light
 pl|Światło ekranu

@@ -88,7 +88,8 @@ API for it) and applies to the built-in display; external displays light up with
 All rights reserved — see [LICENSE](LICENSE). You may download and use the app; the code may not
 be copied, redistributed, modified or used to train AI models.
 
-Part of [Atypical Maker Mac Apps](https://github.com/EnderNoch/Atypical-Maker-Mac-Apps).
+Made by [EnderNoch](https://github.com/EnderNoch) (Atypical Maker) · part of
+[Atypical Maker Mac Apps](https://github.com/EnderNoch/Atypical-Maker-Mac-Apps).
 
 ---
 
@@ -129,3 +130,5 @@ otwórz **Ustawienia systemowe → Prywatność i ochrona**, przewiń w dół i 
 
 Wszelkie prawa zastrzeżone — patrz [LICENSE](LICENSE). Aplikację wolno pobrać i używać; kodu nie
 wolno kopiować, rozpowszechniać, zmieniać ani używać do trenowania modeli AI.
+
+Autor: [EnderNoch](https://github.com/EnderNoch) (Atypical Maker).
