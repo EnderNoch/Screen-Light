@@ -68,7 +68,10 @@ while IFS='|' read -r code name; do
 	mkdir -p "$APP/Contents/Resources/$code.lproj"
 	case "$code" in nb) sys=no;; pt) sys=pt_PT;; zh-Hans) sys=zh_CN;; zh-Hant) sys=zh_TW;; *) sys="$code";; esac
 	line="$(plutil -extract "$sys.NSHumanReadableCopyright" raw -o - "$BOOTH" 2>/dev/null)" || line="$COPYRIGHT"
-	line="$(printf '%s' "$line" | sed -E "s/[0-9]{4}(–[0-9]{4})? Apple Inc\./$YEARS $AUTHOR./")"
+	# Apple writes "Apple Inc." with a no-break space in some languages and wraps it in
+	# direction marks in Hebrew; perl understands both, the marks stay where they are.
+	line="$(printf '%s' "$line" | YEARS="$YEARS" AUTHOR="$AUTHOR" perl -CSDA -pe \
+		's/\d{4}(?:\x{2013}\d{4})?([\s\x{200F}\x{2068}]*)Apple[\s\x{00A0}]Inc\./$ENV{YEARS}$1$ENV{AUTHOR}./; s/\.(\x{2069})\./$1./')"
 	line="${line//\"/\\\"}"
 	printf '"CFBundleName" = "%s";\n"CFBundleDisplayName" = "%s";\n"NSHumanReadableCopyright" = "%s";\n' \
 		"$name" "$name" "$line" > "$APP/Contents/Resources/$code.lproj/InfoPlist.strings"

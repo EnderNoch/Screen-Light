@@ -23,6 +23,8 @@ struct ScreenLightApp: App {
         .windowBackgroundDragBehavior(.enabled)
         .defaultSize(width: 460, height: 820)
         .defaultLaunchBehavior(.presented)
+        // The app menu like Photo Booth's: About, Hide, Hide Others, Show All, Quit, no Services.
+        .commands { CommandGroup(replacing: .systemServices) {} }
 
         // Always there; hiding it is System Settings → Menu Bar's job, and it keeps its place.
         MenuBarExtra {
