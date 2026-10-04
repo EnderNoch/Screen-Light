@@ -121,6 +121,19 @@ ja|スクリーンライト
 ko|화면 조명
 NAMES
 
+# Helper for Golden Gate's Running in Background (Sources/Background.swift): the same program
+# as a separate app with no window and no Dock icon, which keeps the menu bar after Quit.
+echo "› background helper"
+HELP="$APP/Contents/Helpers/$APP"
+rm -rf "$APP/Contents/Helpers"
+mkdir -p "$HELP/Contents/MacOS"
+cp "$APP/Contents/MacOS/ScreenLight" "$HELP/Contents/MacOS/ScreenLight"
+cp -R "$APP/Contents/Resources" "$HELP/Contents/"
+cp "$APP/Contents/Info.plist" "$HELP/Contents/Info.plist"
+plutil -replace CFBundleIdentifier -string "$ID.background" "$HELP/Contents/Info.plist"
+plutil -insert LSUIElement -bool true "$HELP/Contents/Info.plist"
+codesign --force --sign - "$HELP"
+
 echo "› signing ad-hoc"
 codesign --force --sign - "$APP"
 ditto -c -k --keepParent "$APP" Screen-Light.zip
@@ -129,7 +142,10 @@ RUNNING=0
 if pgrep -x ScreenLight >/dev/null; then
 	RUNNING=1
 	echo "› quitting the running copy"
-	osascript -e "tell application id \"$ID\" to quit" 2>/dev/null || true
+	osascript -e "if application id \"$ID\" is running then tell application id \"$ID\" to quit" 2>/dev/null || true
+	sleep 1
+	# Quit leaves the helper running in the background; quit it too, or the old version stays.
+	osascript -e "if application id \"$ID.background\" is running then tell application id \"$ID.background\" to quit" 2>/dev/null || true
 	sleep 1
 fi
 

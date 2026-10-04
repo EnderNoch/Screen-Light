@@ -286,11 +286,18 @@ struct MenuPanel: View {
             Divider()
             HStack {
                 Button(s.open) {
-                    openWindow(id: "main")
-                    NSApp.activate()
+                    if Background.isHelper {
+                        Background.openApp()
+                    } else {
+                        openWindow(id: "main")
+                        NSApp.activate()
+                    }
                 }
                 Spacer()
-                Button(s.quit) { NSApp.terminate(nil) }
+                Button(s.quit) {
+                    AppDelegate.quitNow = true
+                    NSApp.terminate(nil)
+                }
             }
             .buttonStyle(.borderless)
         }
@@ -418,6 +425,23 @@ struct WindowGlass: NSViewRepresentable {
             w.styleMask.insert(.fullSizeContentView)
             // Open with nothing focused; otherwise AppKit puts the caret in the dial's number.
             w.initialFirstResponder = nil
+            DispatchQueue.main.async { w.makeFirstResponder(nil) }
+            // Closing only hides the window, so reopening it from the Dock or the menu bar
+            // doesn't come through here again: clear the focus the first time it is key again.
+            let center = NotificationCenter.default
+            center.removeObserver(self)
+            center.addObserver(self, selector: #selector(closed), name: NSWindow.willCloseNotification, object: w)
+            center.addObserver(self, selector: #selector(becameKey), name: NSWindow.didBecomeKeyNotification, object: w)
+        }
+
+        private var reopened = false
+
+        @objc private func closed() { reopened = true }
+
+        @objc private func becameKey() {
+            guard reopened, let w = window else { return }
+            reopened = false
+            w.makeFirstResponder(nil)
             DispatchQueue.main.async { w.makeFirstResponder(nil) }
         }
 

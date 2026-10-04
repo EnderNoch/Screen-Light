@@ -7,7 +7,7 @@ import ServiceManagement
 final class Model {
     static let shared = Model()
 
-    @ObservationIgnored private let ud = UserDefaults.standard
+    @ObservationIgnored private let ud = Background.defaults
     /// Opens the options window; set by any view that has `openWindow`.
     @ObservationIgnored var openMain: (() -> Void)?
 
@@ -45,7 +45,7 @@ final class Model {
     func start() {
         // Opens at login from the first launch on. Only once: taking it out in System
         // Settings → General → Login Items stays that way.
-        if !ud.bool(forKey: "loginSetUp") {
+        if !Background.isHelper, !ud.bool(forKey: "loginSetUp") {
             try? SMAppService.mainApp.register()
             ud.set(true, forKey: "loginSetUp")
         }

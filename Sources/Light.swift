@@ -61,6 +61,7 @@ final class Light {
             windows.append(makeWindow(on: s, ring: ring, interactive: full))
         }
 
+        save()
         guard full else {
             windows.forEach { $0.orderFrontRegardless() }
             trackPointer()
@@ -90,6 +91,23 @@ final class Light {
             Backlight.set(b)
             savedBacklight = nil
         }
+        save()
+    }
+
+    /// The Edge Light passes between the app and its helper in the background
+    /// (Background.swift), with the backlight to go back to when it goes off. The full light
+    /// goes off at any key, ⌘Q included, and the Photo Booth one follows Photo Booth.
+    private func save() {
+        let ud = Background.defaults
+        ud.set(mode == .edge, forKey: "edgeOn")
+        ud.set(savedBacklight, forKey: "savedBacklight")
+    }
+
+    func resume() {
+        let ud = Background.defaults
+        guard ud.bool(forKey: "edgeOn"), mode == .off else { return }
+        savedBacklight = ud.object(forKey: "savedBacklight") as? Double
+        show(.edge)
     }
 
     /// Color and frame width reach the windows by themselves (`LightView` reads the model);
