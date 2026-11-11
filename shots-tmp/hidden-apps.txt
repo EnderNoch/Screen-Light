@@ -1,0 +1,1 @@
+zed,KeepMacAudioAlive,TextEdit,Finder,Google Drive,Preview,Claude,GitHub Desktop,firefox,ghostty,Timer,ScreenLight
