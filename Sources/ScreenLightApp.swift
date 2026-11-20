@@ -8,7 +8,7 @@ struct ScreenLightApp: App {
     private var menuBarLabel: String {
         let s = Model.shared.s
         return switch light.mode {
-        case .off: Model.appName
+        case .off: Model.appName + ", " + s.off
         case .full: Model.appName + ", " + s.light
         case .edge, .booth: Model.appName + ", " + s.edge
         }
