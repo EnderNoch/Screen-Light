@@ -20,7 +20,7 @@ the system's; more looks (accent colors, tinted glass) are in the [Polish sectio
 
 ## Download and install
 
-1. Download [Screen-Light.zip](https://github.com/EnderNoch/Screen-Light/raw/main/Screen-Light.zip).
+1. Download [Screen-Light.zip](https://github.com/EnderNoch/Screen-Light/releases/latest/download/Screen-Light.zip).
 2. Open the zip file.
 3. Drag **Screen Light.app** into the Applications folder.
 
@@ -135,7 +135,7 @@ region → Aplikacje**.
 
 ### Pobieranie i instalacja
 
-1. Pobierz [Screen-Light.zip](https://github.com/EnderNoch/Screen-Light/raw/main/Screen-Light.zip).
+1. Pobierz [Screen-Light.zip](https://github.com/EnderNoch/Screen-Light/releases/latest/download/Screen-Light.zip).
 2. Otwórz plik zip.
 3. Przeciągnij **Screen Light.app** do folderu Aplikacje.
 
